@@ -1,0 +1,25 @@
+{
+  "name": "generator-yume-cli",
+  "version": "1.0.0",
+  "description": "a cli for web",
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "git@github.com:iWuzhi/yume-cli.git",
+  "author": "iWuzhi <Kaer_600776@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "yeoman-generator": "^4.1.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.1",
+    "yeoman-test": "^2.0.0"
+  }
+}
