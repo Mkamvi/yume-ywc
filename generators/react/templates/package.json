@@ -1,0 +1,16 @@
+{
+  "name": "react-app",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "scripts": {
+    "start": "cross-env NODE_ENV=development MOCK=true webpack-dev-server --config config/webpack/dev.js",
+    "start:api": "cross-env NODE_ENV=development MOCK=false webpack-dev-server --config config/webpack/dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config config/webpack/prod.js --progress"
+  },
+  "repository": "your@git",
+  "author": "iWuzhi <2461358597@qq.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

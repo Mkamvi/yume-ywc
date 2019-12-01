@@ -1,9 +1,0 @@
-{
-  "name": "<%= name %>",
-  "version": "<%= version %>",
-  "author": "<%= author %>",
-  "scripts": {
-    "start": "webpack-dev-server --config config/webpack/development.config.js",
-    "build": "webpack --config config/webpack/development.config.js"
-  }
-}
