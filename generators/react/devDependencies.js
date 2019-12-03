@@ -47,6 +47,7 @@ module.exports = [
 
   // 4. postcss
   "autoprefixer",
+  "postcss-less",
 
   "dotenv",
   "mockjs",

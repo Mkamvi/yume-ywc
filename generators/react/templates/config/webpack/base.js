@@ -30,10 +30,10 @@ module.exports = {
         options: { presets: ["@babel/env"] },
       },
       {
-        test: /\.css$/,
+        test: /\.(css|less)$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: process.env.NODE_ENV === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
             options: {
               // you can specify a publicPath here
               // by default it use publicPath in webpackOptions.output
