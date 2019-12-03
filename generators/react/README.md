@@ -40,3 +40,6 @@ yo ywc:react  //ywc: Yume-web-cli:react
 ```javascript
 yarn start
 ```
+
+### 框架基础结构
+<img src="https://iwuzhi.github.io/images/ywc-react-structure.png">
