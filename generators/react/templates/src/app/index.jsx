@@ -8,8 +8,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { hot } from 'react-hot-loader/root';
 import { Provider } from 'react-redux';
 
-import routes from "./routes.js";
+import ErrorBoundary from "./error/index.jsx";
 
+import routes from "./routes.js";
 import store from "../_redux/store";
 
 function RouteWithSubRoutes(route) {
@@ -32,15 +33,17 @@ class App extends Component {
 
   render() {
     return (
-      <Provider store={store}>
-        <Router>
-          <Switch>
-            {routes.map((route, i) => (
-                <RouteWithSubRoutes key={i} {...route} />
-            ))}
-          </Switch>
-        </Router>
-      </Provider>
+      <ErrorBoundary>
+        <Provider store={store}>
+          <Router>
+            <Switch>
+              {routes.map((route, i) => (
+                  <RouteWithSubRoutes key={i} {...route} />
+              ))}
+            </Switch>
+          </Router>
+        </Provider>
+      </ErrorBoundary>
     )
   }
 }
