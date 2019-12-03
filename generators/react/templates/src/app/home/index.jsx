@@ -8,6 +8,9 @@ import { connect } from "react-redux";
 
 import { HOME_UPDATE_NAME_ACTION } from "../../_redux/actions/index.js";
 
+import styles from "./index.css";
+
+console.log(styles)
 @connect((state) => ({
 
 }))
@@ -26,7 +29,7 @@ export default class Home extends Component {
 
   render() {
     return (
-      <div>hello...</div>
+      <div className={styles.hello}>hello...</div>
     )
   }
 }

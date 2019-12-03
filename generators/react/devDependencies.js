@@ -26,6 +26,7 @@ module.exports = [
   "mini-css-extract-plugin",
   "optimize-css-assets-webpack-plugin",
 
+
   // 2. Babel
   "babel-loader",
   "@babel/core",
@@ -35,7 +36,7 @@ module.exports = [
   "@babel/plugin-proposal-async-generator-functions",
   "@babel/polyfill",
 
-  //3. React
+  // 3. React
   "react",
   "react-dom",
   "react-router-dom",
@@ -43,6 +44,9 @@ module.exports = [
   "redux-saga",
   "redux-devtools-extension",
   "@loadable/component",
+
+  // 4. postcss
+  "autoprefixer",
 
   "dotenv",
   "mockjs",

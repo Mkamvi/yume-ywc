@@ -41,7 +41,7 @@ module.exports = {
             }
           },
           // 'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          { loader: 'css-loader', options: { importLoaders: 1, modules: true } },
           {
             loader: 'postcss-loader',
             options: {
