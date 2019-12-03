@@ -3,12 +3,19 @@
  * Date 2019/12/1
  **/
 
-import { put, takeEvery, all } from 'redux-saga/effects'
+import { all, fork } from 'redux-saga/effects'
 
-import { getHome } from "./home";
+let watchers = [];
+const rc = require.context("./", false, /\.js$/);
+rc.keys().forEach(function (moduleItem) {
+  if ("./index.js" !== moduleItem) {
+    let _moduleItems = rc(moduleItem);
+    Object.keys(_moduleItems).forEach(function (itemKey) {
+      watchers.push(_moduleItems[itemKey]);
+    });
+  }
+});
 
 export default function* rootSaga() {
-  yield all([
-    getHome(),
-  ]);
+  yield all(watchers.map(moduleItem => fork(moduleItem)));
 }

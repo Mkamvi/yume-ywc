@@ -3,18 +3,20 @@
  * Date 2019/11/30
  **/
 
-import { HOME_UPDATE_NAME_ACTION } from "../actions/index.js";
+import { HOME_UPDATE_NAME_ACTION, reducerActionCreator } from "../actions";
 
 const initState = {
   name: "iWuzhi",
 };
 
 const reducers = {
-  [HOME_UPDATE_NAME_ACTION]: (state = initState, action) => ({
-    ...state,
-    name: action.name,
-  })
-}
+  [reducerActionCreator(HOME_UPDATE_NAME_ACTION).type]: (state = initState, action) => (
+    {
+      ...state,
+      name: action.name,
+    }
+  )
+};
 
 function homeReducers(state = initState, action) {
   if (!reducers[action.type]) {
@@ -22,6 +24,7 @@ function homeReducers(state = initState, action) {
   }
   return reducers[action.type](state, action);
 }
+
 export default {
   home: homeReducers,
 }

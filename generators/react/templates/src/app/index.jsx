@@ -21,9 +21,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Router>
-          <Route path="/" components={Home}></Route>
-        </Router>
+        <Home />
       </Provider>
     )
   }

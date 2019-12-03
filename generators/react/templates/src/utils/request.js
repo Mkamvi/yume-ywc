@@ -19,11 +19,7 @@ instance.interceptors.response.use(function (response) {
   if (response.data.code !== 0) {
     return Promise.reject(response);
   }
-  return response;
-}, function (error) {
-  // Any status codes that falls outside the range of 2xx cause this function to trigger
-  // Do something with response error
-  return Promise.reject(error);
-});
+  return { response };
+}, error => ({ error }));
 
 export default instance;

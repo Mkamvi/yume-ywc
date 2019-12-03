@@ -81,6 +81,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env.MOCK': JSON.stringify(process.env.MOCK),
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output

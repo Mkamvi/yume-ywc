@@ -4,8 +4,11 @@
  **/
 
 
-export const homeData = {
-  url: "/api/home",
-  method: "post",
-  data: {}
-}
+export const homeData = [
+  "/api/home",
+  "post",
+  {
+    'data|1-10':[{}],
+    code: 0,
+  }
+]

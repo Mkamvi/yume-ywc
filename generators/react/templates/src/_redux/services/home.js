@@ -3,10 +3,10 @@
  * Date 2019/12/1
  **/
 
-const request = require("../../utils/request.js");
+import request from "../../utils/request.js";
 
 export async function getHome(payload) {
-  return request.post("/api/home", {
+  return request.post("/home", {
     hello: payload
   })
 }

@@ -13,6 +13,7 @@ const baseConfig = require("./base");
 
 module.exports = merge(baseConfig, {
   entry: ["react-hot-loader/patch"],
+  devtool: 'inline-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin()
   ],
