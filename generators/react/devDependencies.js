@@ -42,6 +42,7 @@ module.exports = [
   "react-redux",
   "redux-saga",
   "redux-devtools-extension",
+  "@loadable/component",
 
   "dotenv",
   "mockjs",

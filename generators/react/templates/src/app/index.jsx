@@ -4,13 +4,25 @@
  **/
 
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { hot } from 'react-hot-loader/root';
 import { Provider } from 'react-redux';
 
-import Home from "./home/index.jsx";
+import routes from "./routes.js";
 
-import store from "../_redux/store.js";
+import store from "../_redux/store";
+
+function RouteWithSubRoutes(route) {
+  return (
+      <Route
+          path={route.path}
+          render={props => (
+              // pass the sub-routes down to keep nesting
+              <route.component {...props} routes={route.routes} />
+          )}
+      />
+  );
+}
 
 class App extends Component {
 
@@ -21,7 +33,13 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Home />
+        <Router>
+          <Switch>
+            {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route} />
+            ))}
+          </Switch>
+        </Router>
       </Provider>
     )
   }
