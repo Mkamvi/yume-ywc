@@ -66,8 +66,8 @@ module.exports = class extends Generator {
 
   install() {
     // 依赖安装
-    this.yarnInstall(dependencies, { dev: false });
-    this.yarnInstall(devDependencies, { dev: true });
+    this.npmInstall(dependencies, { "save": true });
+    this.npmInstall(devDependencies, { "save-dev": true });
   }
 
   end() {
