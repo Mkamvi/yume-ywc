@@ -12,7 +12,8 @@
   "author": "iWuzhi <2461358597@qq.com>",
   "license": "MIT",
   "dependencies": {
-    "yeoman-generator": "^4.2.0"
+    "yeoman-generator": "^4.2.0",
+    "yosay": "^2.0.2"
   },
   "devDependencies": {}
 }
