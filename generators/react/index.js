@@ -4,9 +4,9 @@
  **/
  
 const Generator = require("yeoman-generator");
+
 const dependencies = require("./dependencies");
 const devDependencies = require("./devDependencies");
-
 
 const tplCopyFiles = [
     "config",
@@ -15,7 +15,7 @@ const tplCopyFiles = [
     "package.json",
 ];
 const tplSpecialCopyFiles = [
-    ["_babelrc.js", ".babelrc.js"],
+    ["_babelrc.js.ejs", ".babelrc.js"],
     ["_gitignore", ".gitignore"],
     ["_env", ".env"],
 ];
@@ -45,11 +45,20 @@ module.exports = class extends Generator {
         message: "请输入版本号",
         default: "1.0.0",
       },
+      {
+        type: "confirm",
+        name: "antd",
+        message: "是否需要集成Antd",
+        default: true,
+      }
     ]);
   }
 
   configuring() {
     // 相关配置
+    if (this.appConfig.antd) {
+      dependencies.push("antd");
+    }
   }
 
   writing() {
@@ -66,8 +75,8 @@ module.exports = class extends Generator {
 
   install() {
     // 依赖安装
-    this.npmInstall(dependencies, { "save": true });
-    this.npmInstall(devDependencies, { "save-dev": true });
+    // this.npmInstall(dependencies, { "save": true });
+    // this.npmInstall(devDependencies, { "save-dev": true });
   }
 
   end() {
@@ -76,16 +85,19 @@ module.exports = class extends Generator {
 
   _copyTemplates() {
     tplCopyFiles.concat(tplSpecialCopyFiles).forEach((_file) => {
-      let _tPath = "", _dPath = "";
+      let _tPath = "", _dPath = "", _options = {};
       if (typeof _file === "string") {
         _tPath = this.templatePath(_file);
         _dPath = this.destinationPath(_file);
       } else if(Array.isArray(_file)) {
         _tPath = this.templatePath(_file[0]);
         _dPath = this.destinationPath(_file[1] || _file[0]);
+        if (".babelrc.js" === _file[1]) {  // babel
+          _options.antd = this.appConfig.antd;
+        }
       }
-      this.fs.copy(_tPath, _dPath);
-    })
+      this.fs.copyTpl(_tPath, _dPath, _options);
+    });
   }
 
   _writePackageJSON(config) {

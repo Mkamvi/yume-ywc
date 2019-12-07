@@ -6,7 +6,7 @@ module.exports = {
     [
       "@babel/preset-react",
       {
-        development: process.env.BABEL_ENV === "development",
+        development: process.env.NODE_ENV === "development",
       },
     ],
   ],
@@ -14,5 +14,12 @@ module.exports = {
     ["@babel/plugin-proposal-decorators", { legacy: true }],
     "@babel/plugin-proposal-async-generator-functions",
     "react-hot-loader/babel",
+    <% if(antd) { %>
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": "css" // `style: true` 会加载 less 文件
+    }],
+    <% } %>
   ]
 };
