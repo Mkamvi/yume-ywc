@@ -58,6 +58,7 @@ module.exports = class extends Generator {
     // 相关配置
     if (this.appConfig.antd) {
       dependencies.push("antd");
+      dependencies.push("babel-plugin-import");
     }
   }
 

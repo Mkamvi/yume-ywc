@@ -31,6 +31,7 @@ module.exports = {
       },
       {
         test: /\.(css|less)$/,
+        exclude: /node_modules|bower_components/,
         use: [
           {
             loader: process.env.NODE_ENV === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
@@ -50,6 +51,18 @@ module.exports = {
               }
             }
           }
+        ]
+      },
+      {
+        test: /\.css$/,
+        include: /node_modules|bower_components/,
+        use: [
+          {
+            loader: process.env.NODE_ENV === "development" ? "style-loader" : MiniCssExtractPlugin.loader,
+            options: {}
+          },
+          // 'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1, modules: false } },
         ]
       },
       {
