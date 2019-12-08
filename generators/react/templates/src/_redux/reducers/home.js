@@ -3,7 +3,7 @@
  * Date 2019/11/30
  **/
 
-import { HOME_UPDATE_NAME_ACTION, reducerActionCreator } from "../actions";
+import { HOME_UPDATE_NAME_ACTION, reducerActionCreator } from "../types";
 
 const initState = {
   name: "iWuzhi",

@@ -45,13 +45,15 @@ module.exports = class extends Generator {
         message: "请输入版本号",
         default: "1.0.0",
       },
-      {
-        type: "confirm",
-        name: "antd",
-        message: "是否需要集成Antd",
-        default: true,
-      }
+      // {
+      //   type: "confirm",
+      //   name: "antd",
+      //   message: "是否需要集成Antd",
+      //   default: true,
+      // }
     ]);
+    // TODO: antd 集成和模板引用antd的冲突  2019年12月08日15:10:35 iWuzhi
+    this.appConfig.antd = true;
   }
 
   configuring() {
@@ -76,8 +78,8 @@ module.exports = class extends Generator {
 
   install() {
     // 依赖安装
-    // this.npmInstall(dependencies, { "save": true });
-    // this.npmInstall(devDependencies, { "save-dev": true });
+    this.yarnInstall(dependencies);
+    this.yarnInstall(devDependencies, { 'dev': true });
   }
 
   end() {

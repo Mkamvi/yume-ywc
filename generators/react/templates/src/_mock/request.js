@@ -1,11 +1,10 @@
 /**
  * Author iWuzhi
- * Date 2019/12/1
+ * Date 2019/12/8
  **/
 
-
-export const homeData = [
-  "/api/home",
+export const fetchData = [
+  "/api/request/fetch_data",
   "post",
   {
     'data|1-10':[{

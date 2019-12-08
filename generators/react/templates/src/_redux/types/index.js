@@ -5,6 +5,7 @@
 
 
 export * from "./home";
+export * from "./request";
 
 const __REDUCER_PREFIX = "__REDUCER_PREFIX";
 export function reducerActionCreator(type, payload) {

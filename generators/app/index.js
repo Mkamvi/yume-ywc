@@ -54,6 +54,9 @@ module.exports = class extends Generator {
 
   end() {
     // say goodbye...
+    this.log(
+        yosay(`Congratulation，you are success ！`)
+    );
   }
 
 };

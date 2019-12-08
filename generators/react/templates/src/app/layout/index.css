@@ -1,0 +1,13 @@
+
+.layout {
+    min-height: 100vh;
+    display: flex;
+}
+.main {
+    background-color: #fff;
+    flex-grow: 2;
+    flex-shrink: 2;
+}
+.router {
+
+}

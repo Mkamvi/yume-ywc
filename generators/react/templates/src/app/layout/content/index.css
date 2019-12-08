@@ -1,0 +1,6 @@
+
+.content {
+    min-height: calc(100vh - 60px - 21px - 24px - 8px);  /* bodyHeight - header - footer */
+    background-color: #fff;
+    padding: 12px 12px 0 12px;
+}

@@ -35,6 +35,8 @@ module.exports = [
   "@babel/plugin-proposal-decorators",
   "@babel/plugin-proposal-async-generator-functions",
   "@babel/polyfill",
+  "babel-plugin-import",
+  "react-router-config",
 
   // 3. React
   "react",

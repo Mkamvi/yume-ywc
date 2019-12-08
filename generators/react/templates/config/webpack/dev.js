@@ -21,5 +21,6 @@ module.exports = merge(baseConfig, {
     contentBase: paths.public,
     port: 3000,
     hot: true,
+    historyApiFallback: true,
   },
 });

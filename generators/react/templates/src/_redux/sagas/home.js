@@ -7,7 +7,7 @@ import { call, put, takeLatest } from 'redux-saga/effects'
 
 import { getHome as getHomeAPI } from "../services/home";
 
-import { HOME_UPDATE_NAME_ACTION, reducerActionCreator } from  "../actions";
+import { HOME_UPDATE_NAME_ACTION, reducerActionCreator } from "../types";
 
 function* getHome(action) {
   const { response, error } = yield call(getHomeAPI, action.payload);
